@@ -27,7 +27,7 @@ class PersonalLog():
         self.logger.setLevel(logging.DEBUG)
 
         # Log handlers
-        format = logging.Formatter('%(asctime)-12s %(levelname)-8s %(name)-10s %(message)-12s')
+        format = logging.Formatter('%(asctime)-12s %(levelname)-8s %(name)-10s  %(message)-12s')
         file_handle = logging.FileHandler(self.log_file)
         file_handle.setFormatter(format)
         file_handle.setLevel(logging.INFO)
