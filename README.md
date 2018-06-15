@@ -1,7 +1,7 @@
 # Some Python Program
 Some python programs that may or may not make life easier
 
-## Program
+## Programs
 
 ### image_modify
 
@@ -30,3 +30,16 @@ Logging class for use in other python programs
     PersonalLog.warning(message)
     PersonalLog.error(message)
     PersonalLog.critical(message)
+
+### user_agent_class
+User-agent header for web scraping
+
+##### UserAgent.load_random()
+Randomly return an user-agent value
+
+    UserAgent.load_random()
+
+##### UserAgent.write_file()
+Save user-agent headers data to file
+
+    UserAgent.write_file()
