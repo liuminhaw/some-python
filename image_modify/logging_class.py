@@ -1,3 +1,4 @@
+#!/usr/bin/python
 """
 Program:
     Personal defined logging class
