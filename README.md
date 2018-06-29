@@ -6,10 +6,19 @@ Some python programs that may or may not make life easier
 ### image_modify
 
 ##### compress
-Compress image in **jpeg** format  
-`QUALITY` should be value between 1 and 95
+Compress image in **jpeg** format.  
+`QUALITY` should be value between 1 and 95.  
+Default value of `QUALITY` is `75` if not specified.
 
-    image_modify compress INPUTFILE [QUALITY]
+    image_modify compress INPUTFILE OUTPUTFILE [QUALITY]
+
+##### resize
+Resize image's width and height by dividing to `PROPORTION`.  
+`PROPORTION` should be a positive integer.  
+Default value of `PROPORTION` is `2` if not specified.   
+
+    image_modify resize INPUTFILE OUTPUTFILE [PROPORTION]
+
 
 ### password_generator
 Randomly generate password for use  
@@ -19,7 +28,7 @@ Use `length=LENGTH` to assign password length, default value is 15
     password_generator [length=LENGTH] [symbols]
 
 
-## Class
+## Classes
 
 ### logging_class
 Logging class for use in other python programs
