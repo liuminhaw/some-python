@@ -3,25 +3,27 @@ Program:
     Personal defined logging class
 Author:
     haw
+Version:
+    1.0.0
 """
 
 import sys, os, errno
-import logging
+import logging, datetime
 from pathlib import Path
 
 class PersonalLog():
 
     def __init__(self, prog_name):
         self.logger = logging.getLogger(prog_name)
+
+        # Log file name
+        filename = '{}-{}.log'.format(datetime.date.today(), prog_name)
+
         self.log_dir = os.path.join(str(Path.home()), 'python_log')
-        self.log_file = os.path.join(self.log_dir, prog_name+'.log')
+        self.log_file = os.path.join(self.log_dir, filename)
 
         # Make python_log directory if not exist
-        try:
-            os.makedirs(self.log_dir)
-        except OSError as err:
-            if err.errno != errno.EEXIST:
-                raise
+        os.makedirs(self.log_dir, exist_ok=True)
 
         # Set logger
         self.logger.setLevel(logging.DEBUG)
