@@ -329,7 +329,7 @@ def _quality_check():
     except Warning:
         logger.info('QUALITY value should be betweeb 1 to 95.')
         sys.exit(21)
-    else:
+    except:
         quality = 75
 
     return quality
