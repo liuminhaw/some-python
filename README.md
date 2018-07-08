@@ -3,37 +3,6 @@ Some python programs that may or may not make life easier
 
 ## Programs
 
-### image_modify
-
-##### compress
-Compress image in **jpeg** format.  
-`QUALITY` should be value between `1` and `95`.  
-Default value of `QUALITY` is `75` if not specified.
-
-    image_modify.py compress INPUTFILE OUTPUTFILE [QUALITY]
-
-##### resize
-Resize image's width and height by dividing to `PROPORTION`.  
-`PROPORTION` should be a positive integer.  
-Default value of `PROPORTION` is `2` if not specified.   
-
-    image_modify.py resize INPUTFILE OUTPUTFILE [PROPORTION]
-
-##### dir-compress
-Compress images of **jpeg** format in a directory.  
-`QUALITY` should be value between `1` and `95`
-
-    image_modify.py dir-compress INPUTDIR OUTPUTDIR [QUALITY]
-
-##### dir-resize
-Resize images in a directory by dividing width and height to `PROPORTION`.  
-`PROPORTION` should be a positive integer.  
-Default value of `PROPORTION` is `2` if not specified.  
-
-    image_modify.py dir-resize INPUTDIR OUTPUTDIR [PROPORTION]
-
-
-
 ### password_generator
 Randomly generate password for use  
 Use `length=LENGTH` to assign password length, default value is 15  
