@@ -14,6 +14,7 @@ Use `length=LENGTH` to assign password length, default value is 15
 ## Classes
 
 ### logging_class
+#### Version 1.0.0
 Logging class for use in other python programs
 
     PersonalLog(name)
@@ -24,14 +25,25 @@ Logging class for use in other python programs
     PersonalLog.critical(message)
 
 ### user_agent_class
+#### Version 1.0
 User-agent header for web scraping
 
-##### UserAgent.load_random()
-Randomly return an user-agent value
+##### UserAgent.random_computer()
+Randomly return an user-agent value that is used by computer
 
-    UserAgent.load_random()
+    UserAgent.random_computer()
 
-##### UserAgent.write_file()
-Save user-agent headers data to file
+##### UserAgent.random_phone()
+Randomly return an user-agent value that is used by phone
 
-    UserAgent.write_file()
+    UserAgent.random_phone()
+
+##### UserAgent.write_computer()
+Save computer use user-agent headers data to file
+
+    UserAgent.write_computer()
+
+##### UserAgent.write_phone()
+Save phone use user-agent headers data to file
+
+    UserAgent.write_phone()
