@@ -4,7 +4,7 @@ Program:
 Author:
     haw
 Version:
-    1.0
+    1.1
 """
 
 import sys, random, logging
@@ -31,9 +31,17 @@ class UserAgent():
 
 
     def random_computer(self):
+        """
+        Success: Return a random user-agent
+        Failed: Return an empty list
+        """
         return self._load_random(URL_COMPUTER)
 
     def random_phone(self):
+        """
+        Success: Return a random user-agent
+        Failed: Return an empty list
+        """
         return self._load_random(URL_PHONE)
 
     def write_computer(self):
@@ -48,13 +56,17 @@ class UserAgent():
     def _load_random(self, url):
         """
         Randomly return an user-agent value
+        or an empty list if no data is fetched
         """
         selected_list = self._scrape_for_user_agent(url)
 
-        user_agent = random.choice(selected_list)
-        logger.debug('User-Agent: {}'.format(user_agent.text))
-
-        return user_agent.text
+        try:
+            user_agent = random.choice(selected_list)
+            logger.debug('User-Agent: {}'.format(user_agent.text))
+        except IndexError:
+            return selected_list
+        else:
+            return user_agent.text
 
 
     def _write_file(self, url):
@@ -63,16 +75,20 @@ class UserAgent():
         """
         selected_list = self._scrape_for_user_agent(url)
 
-        with open(self._filename, 'w') as write_file:
-            for elem in selected_list:
-                write_file.write('{}\n'.format(elem.text))
+        if len(selected_list) != 0:
+            with open(self._filename, 'w') as write_file:
+                for elem in selected_list:
+                    write_file.write('{}\n'.format(elem.text))
 
-        print('Write user-agent to file {} success.'.format(self._filename))
+            print('Write user-agent to file {} success.'.format(self._filename))
+        else:
+            logger.warning('No user-agent data write to file.')
 
 
     def _scrape_for_user_agent(self, url_type):
         """
         Get and return list of fetched data
+        Return an empty list if request failed
         """
         # Request for web page
         try:
@@ -80,7 +96,8 @@ class UserAgent():
             req.raise_for_status()
         except:
             logger.warning('Request for user-agent web page failed.')
-            sys.exit(1)
+            # sys.exit(1)
+            return []
 
         # Grab information
         soup = BeautifulSoup(req.text, 'html.parser')
