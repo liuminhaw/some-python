@@ -14,7 +14,7 @@ Use `length=LENGTH` to assign password length, default value is 15
 ## Classes
 
 ### logging_class
-#### Version 1.0.0
+#### Version 1.0.1
 Logging class for use in other python programs
 
     PersonalLog(name)
