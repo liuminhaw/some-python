@@ -8,7 +8,12 @@ Randomly generate password for use
 Use `length=LENGTH` to assign password length, default value is 15  
 `symbols` argument to include symbol characters in new created password
 
-    password_generator [length=LENGTH] [symbols]
+    password_generator.py [length=LENGTH] [symbols]
+
+### taiwanID_identifier
+Check if the given ID `PERSONAL_ID` is valid or not
+
+    id_identifier.py PERSONAL_ID
 
 
 ## Classes
