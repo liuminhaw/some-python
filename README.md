@@ -20,3 +20,8 @@ Extract URLs from text file
 `INPUTFILE` and `OUTPUTFILE` should have extension type of `.txt`
 
     url_extractor.py INPUTFILE OUTPUTFILE
+
+### lastpass_backup
+Backup password information
+
+    lastpass_backup.py DESTINATION_DIRECTORY

@@ -5,6 +5,9 @@ Program:
 Author:
     haw
 
+Usage:
+    id_identifier.py PERSONAL_ID
+
 Error Code:
     1 - Program usage error
     11 - Personal ID format error
