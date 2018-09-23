@@ -52,14 +52,12 @@ def main():
     # Alphabet number transform
     alpha_num = LETTERS[personal_id[0].upper()]
     checksum = (alpha_num // 10) + (alpha_num % 10) * 9
-    logger.info('checksum: {}'.format(checksum))
 
     multiplier = 8
     for num in personal_id[1:]:
         checksum += multiplier * int(num)
         multiplier -= 1
     checksum += int(personal_id[-1])
-    logger.info('checksum: {}'.format(checksum))
 
     # Result
     if checksum % 10 == 0:

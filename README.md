@@ -10,6 +10,12 @@ Use `length=LENGTH` to assign password length, default value is 15
 
     password_generator.py [length=LENGTH] [symbols]
 
+### taiwanID_generator
+Create a random valid ID
+Apply specific starting letter with `LETTER`. Otherwise randomly chosen.
+
+    id_generator.py [LETTER]
+
 ### taiwanID_identifier
 Check if the given ID `PERSONAL_ID` is valid or not
 
