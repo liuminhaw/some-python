@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Program:
-    Backup password in files
+    Backup password for lastpass to files
 Author:
     haw
 
@@ -75,11 +75,16 @@ def _request_info():
     Return:
         PasswordInfo object
     """
+    site, username, password, url = '', '', '', ''
 
-    site = input('Site: ')
-    username = input('User name: ')
-    password = getpass.getpass('Password: ')
-    url = input('URL: ')
+    while site =='':
+        site = input('Site: ')
+    while username == '':
+        username = input('User name: ')
+    while password == '':
+        password = getpass.getpass('Password: ')
+    while url == '':
+        url = input('URL: ')
 
     return PasswordInfo(site, username, password, url)
 
@@ -87,6 +92,10 @@ def _request_info():
 def _password_backup(info, path):
     """
     Backup password informations
+
+    Error:
+        FileExistsError - Raise if file already exist
+        KeyboardInterrupt - Raise when Ctrl-C is pressed
     """
 
     new_file = blkcl.File(os.path.join(path, info.site))
