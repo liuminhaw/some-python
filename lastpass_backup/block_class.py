@@ -4,7 +4,7 @@ Program:
 Author:
     haw
 Version:
-    0.1.0
+    0.1.1
 """
 
 
@@ -31,7 +31,6 @@ class Directory(BlockType):
     def iterate_files(self):
         """
         Iterates through files in the directory
-
         Return:
             A File class object
         """
@@ -48,7 +47,11 @@ class File(BlockType):
         self.dir = os.path.dirname(self.abs)
         self.base = os.path.basename(self.abs)
         self.file_name = os.path.splitext(self.base)[0]
-        self.file_extension = os.path.splitext(self.base)[1]
+
+        try:
+            self.file_extension = os.path.splitext(self.base)[1]
+        except IndexError:
+            self.file_extension = ''
 
     def file_exist(self):
         return os.path.isfile(self.abs)
@@ -56,7 +59,6 @@ class File(BlockType):
     def format_check(self, formats):
         """
         Compare file format to formats
-
         Input:
             formats - tuple of file formats
         """

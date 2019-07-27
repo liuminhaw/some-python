@@ -21,7 +21,7 @@ import getpass
 import block_class as blkcl
 import logging_class as lgcl
 
-logger = lgcl.PersonalLog('lastpass_backup')
+#logger = lgcl.PersonalLog('lastpass_backup')
 
 
 class PasswordInfo():
@@ -49,8 +49,12 @@ def main():
 
     # Check directory existence
     if not output_dir.dir_exist():
-        logger.info('Target directory {} not exist.'.format(ourput_dir.dir))
+        print('Target directory {} not exist.'.format(output_dir.dir))
         sys.exit(11)
+
+    # Create logger file
+    global logger
+    logger = lgcl.PersonalLog('lastpass_backup', directory=output_dir.dir)
 
     # Password file creation
     print('Press CTRL-C to exit.\n')
@@ -117,7 +121,7 @@ def _password_backup(info, path):
             os.remove(new_file.abs)
         raise KeyboardInterrupt
 
-    print('Create file {} success.\n'.format(new_file.abs))
+    logger.info('Create file {} success.\n'.format(new_file.abs))
 
 
 
